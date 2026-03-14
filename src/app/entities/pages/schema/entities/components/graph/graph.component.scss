@@ -1,0 +1,152 @@
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.graph {
+  flex: 1;
+  min-height: 500px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.scenario-controls {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.scenario-controls h3 {
+  margin: 0 0 16px 0;
+  color: #1976d2;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.scenario-btn {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+  font-family: Arial, sans-serif;
+
+  &:hover {
+    border-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+  }
+
+  &.active {
+    border-color: #1976d2;
+    background: #e3f2fd;
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  }
+}
+
+.scenario-title {
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.scenario-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.scenario-risk {
+  font-size: 11px;
+  color: #999;
+}
+
+.reset-container {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.reset-btn {
+  padding: 10px 24px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #1565c0;
+    transform: scale(1.05);
+  }
+}
+
+.legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.node-text {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Подсветка узлов по уровню риска */
+.node.highlight-low circle {
+  fill: #4caf50 !important;  /* Зелёный — низкий риск */
+  stroke: white !important;
+  stroke-width: 4px !important;
+}
+
+.node.highlight-medium circle {
+  fill: #ff9800 !important;  /* Жёлтый — средний риск */
+  stroke: white !important;
+  stroke-width: 4px !important;
+}
+
+.node.highlight-high circle {
+  fill: #f44336 !important;  /* Красный — высокий риск */
+  stroke: white !important;
+  stroke-width: 4px !important;
+}
+
+/* Стрелки поменьше */
+#arrowhead {
+  marker-width: 6px !important;
+  marker-height: 6px !important;
+}

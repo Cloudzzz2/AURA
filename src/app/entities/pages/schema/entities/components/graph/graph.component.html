@@ -1,0 +1,94 @@
+<div class="graph-container">
+  <div #graphContainer class="graph"></div>
+
+  <div class="scenario-controls">
+    <h3>Сценарии модели оценки угроз</h3>
+
+    <div class="scenario-grid">
+      <!-- Сценарий 1 -->
+      <button
+        (click)="runScenario('scenario1')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario1'">
+        <div class="scenario-title">Сценарий 1</div>
+        <div class="scenario-desc">Угроза НЕРЕЛЕВАНТНА</div>
+        <div class="scenario-risk">ε=0.01, Risk=0.14%</div>
+      </button>
+
+      <!-- Сценарий 2 -->
+      <button
+        (click)="runScenario('scenario2')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario2'">
+        <div class="scenario-title">Сценарий 2</div>
+        <div class="scenario-desc">Угроза РЕЛЕВАНТНА</div>
+        <div class="scenario-risk">Risk=0.34% (низкий)</div>
+      </button>
+
+      <!-- Сценарий 3 -->
+      <button
+        (click)="runScenario('scenario3')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario3'">
+        <div class="scenario-title">Сценарий 3</div>
+        <div class="scenario-desc">Угроза РЕЛЕВАНТНА</div>
+        <div class="scenario-risk">Risk=5.25% (высокий)</div>
+      </button>
+
+      <!-- Сценарий 4a -->
+      <button
+        (click)="runScenario('scenario4a')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario4a'">
+        <div class="scenario-title">Сценарий 4a</div>
+        <div class="scenario-desc">K=0.9 (высокая независимость)</div>
+        <div class="scenario-risk">Угроза НЕРЕЛЕВАНТНА</div>
+      </button>
+
+      <!-- Сценарий 4b -->
+      <button
+        (click)="runScenario('scenario4b')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario4b'">
+        <div class="scenario-title">Сценарий 4b</div>
+        <div class="scenario-desc">K=0.3 (низкая независимость)</div>
+        <div class="scenario-risk">Угроза РЕЛЕВАНТНА</div>
+      </button>
+
+      <!-- Сценарий 5 -->
+      <button
+        (click)="runScenario('scenario5')"
+        class="scenario-btn"
+        [class.active]="activeScenario === 'scenario5'">
+        <div class="scenario-title">Сценарий 5</div>
+        <div class="scenario-desc">Проверка порога ε</div>
+        <div class="scenario-risk">Сравнение ε=0.001/0.01/0.05</div>
+      </button>
+    </div>
+
+    <div class="reset-container">
+      <button (click)="resetGraph()" class="reset-btn">
+        🔄 Сбросить граф
+      </button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <span class="legend-color" style="background: #4caf50"></span>
+        <span>Низкий риск (< 1%)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #ff9800"></span>
+        <span>Средний риск (1-5%)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #f44336"></span>
+        <span>Высокий риск (> 5%)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="border: 2px dashed #2196f3"></span>
+        <span>Мера защиты (PROTECTS)</span>
+      </div>
+    </div>
+  </div>
+</div>

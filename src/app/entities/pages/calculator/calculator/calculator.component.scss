@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-5xl {
+    font-size: 3rem;
+  }
+
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* Metric button styles */
+.metric-options ::ng-deep .p-button {
+  min-width: 100px;
+}
+
+/* Card hover effects */
+::ng-deep .p-card {
+  transition: box-shadow 0.3s ease;
+}
+
+::ng-deep .p-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,32 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+}
+
+.routing-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 7%;
+  padding: 1rem;
+  box-shadow: 0 0 3px 4px aliceblue;
+  border-radius: 3px;
+}
+
+::ng-deep {
+  p-button {
+    width: 22%;
+
+    :hover {
+      background-color: aliceblue;
+    }
+
+    .p-button {
+      border: none;
+      width: 100%;
+    }
+  }
+
+}
