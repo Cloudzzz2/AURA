@@ -1,0 +1,29 @@
+:host {
+    width: 100%;
+
+    ::ng-deep {
+        .p-multiselect,
+        .p-inputtext {
+            font-size: 12px;
+        }
+
+        .p-multiselect-label,
+        .p-placeholder {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.wrapper {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    //input,
+    //p-multiSelect {
+    //}
+}
