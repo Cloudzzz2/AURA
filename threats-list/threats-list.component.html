@@ -1,0 +1,56 @@
+<p-table #threatsList
+         [value]="threatsData()"
+         [paginator]="true"
+         [rows]="10"
+         [showCurrentPageReport]="true"
+         [rowsPerPageOptions]="[5, 10]"
+         [scrollable]="true"
+         [globalFilterFields]="['name']"
+         [sortMode]="'single'"
+         (onPage)="pageChange($event)"
+         scrollHeight="flex"
+         selectionMode="single"
+         currentPageReportTemplate="Отображены записи с {first} по {last}. Всего {totalRecords}.">
+<!--    <ng-template pTemplate="caption">-->
+<!--            <span class="p-input-icon-left">-->
+<!--                <i class="pi pi-search"></i>-->
+<!--                <input pInputText-->
+<!--                       [(ngModel)]="searchValue"-->
+<!--                       (input)="threatsList.filterGlobal(searchValue, 'startsWith')"-->
+<!--                       placeholder="Введите текст"-->
+<!--                       type="text"/>-->
+<!--            </span>-->
+<!--    </ng-template>-->
+    <ng-template pTemplate="header">
+        <tr>
+            <th>№</th>
+            <th pSortableColumn="name">
+                <span>Угроза</span>
+                <p-sortIcon field="name"/>
+            </th>
+            <th pSortableColumn="type">
+                <span>Тип</span>
+                <p-sortIcon field="type"/>
+            </th>
+            <th pSortableColumn="status">
+                <span>Статус</span>
+                <p-sortIcon field="status"/>
+            </th>
+            <th pSortableColumn="reachability">
+                <span>Достижимость</span>
+                <p-sortIcon field="reachability"/>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body"
+                 let-threat
+                 let-rowIndex="rowIndex">
+        <tr>
+            <td>{{ rowIndex + 1 }}</td>
+            <td>{{ threat.name }}</td>
+            <td>{{ threat.type }}</td>
+            <td>{{ threat.status }}</td>
+            <td>{{ threat.reachability }}</td>
+        </tr>
+    </ng-template>
+</p-table>

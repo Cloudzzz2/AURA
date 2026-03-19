@@ -1,0 +1,36 @@
+:host {
+    padding: 5px;
+    height: 80%;
+
+    ::ng-deep {
+        .p-datatable .p-datatable-thead > tr > th {
+            text-align: center !important;
+        }
+
+        .p-sortable-column {
+            white-space: nowrap;
+        }
+
+        .p-datatable .p-datatable-tbody > tr > td {
+            text-align: center !important;
+        }
+
+        .p-datatable .p-datatable-tbody > tr {
+            height: 50px;
+        }
+
+        .p-datatable-tbody {
+            height: 100%;
+        }
+
+        .p-datatable-wrapper {
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+        }
+
+        .p-paginator {
+            font-size: 12px;
+        }
+    }
+}
