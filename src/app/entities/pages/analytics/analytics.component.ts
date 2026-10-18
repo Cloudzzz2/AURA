@@ -21,5 +21,14 @@ import {ThreatsAnalyticsComponent} from "./entities/components/threats-analytics
     styleUrl: './analytics.component.scss'
 })
 export class AnalyticsComponent {
-
+    public selectedThreat: any = {
+        id: 101,
+        name: 'Внедрение параметризированных запросов',
+        type: 'Техническая',
+        status: 'Доступна',
+        effectiveness: 'Высокая',
+        description: 'Замена динамической сборки SQL-запросов на использование подготовленных выражений (Prepared Statements) для исключения возможности инъекции.',
+        complexity: 'Средняя',
+        applicableThreats: [1, 11] // ID уязвимостей, к которым подходит эта мера
+    }
 }

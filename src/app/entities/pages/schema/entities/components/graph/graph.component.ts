@@ -29,10 +29,10 @@ export class GraphComponent implements OnInit, OnDestroy {
   public graphContainer!: ElementRef;
 
   @Input({ required: false })
-  public width: number = 1000;
+  public width: number = document.body.clientWidth;
 
   @Input({ required: false })
-  public height: number = 700;
+  public height: number = 650;
 
   private _attackPropagationService: AttackPropagationService = inject(AttackPropagationService);
   private _nodeAttackStateService: NodeAttackStateService = inject(NodeAttackStateService);

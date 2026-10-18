@@ -1,17 +1,18 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Button} from "primeng/button";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    Button,
-    RouterLink,
-    HttpClientModule
-  ],
+    imports: [
+        RouterOutlet,
+        Button,
+        RouterLink,
+        HttpClientModule,
+        RouterLinkActive
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

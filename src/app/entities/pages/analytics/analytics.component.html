@@ -4,15 +4,10 @@
             <app-threats-filters/>
             <app-threats-list/>
         </div>
-        <div>
-            <div class="measures-list">
-                <app-threat-info/>
-                <app-measures-filters/>
-                <app-measures-list/>
-            </div>
-            <div class="threat-info">
-
-            </div>
+        <div class="measures-list">
+            <app-threat-info [threat]="selectedThreat"/>
+            <app-measures-filters/>
+            <app-measures-list/>
         </div>
     </div>
     <div class="analytics-block">
