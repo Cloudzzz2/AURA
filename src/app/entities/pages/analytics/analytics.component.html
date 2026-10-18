@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <div class="action-block">
+        <div class="threats-list">
+            <app-threats-filters/>
+            <app-threats-list/>
+        </div>
+        <div class="measures-list">
+            <app-threat-info [threat]="selectedThreat"/>
+            <app-measures-filters/>
+            <app-measures-list/>
+        </div>
+    </div>
+    <div class="analytics-block">
+        <app-threats-analytics/>
+    </div>
+</div>

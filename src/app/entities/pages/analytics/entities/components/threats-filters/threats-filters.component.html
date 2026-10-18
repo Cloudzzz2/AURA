@@ -1,0 +1,21 @@
+<div [formGroup]="threatsFiltersForm"
+     class="wrapper">
+    <p-multiSelect [formControl]="threatsFiltersForm.controls['vectorId']"
+                   [options]="vectors()"
+                   optionValue="id"
+                   optionLabel="name"
+                   placeholder="Выберите вектор уязвимости"
+                   appendTo="body"/>
+    <p-multiSelect [formControl]="threatsFiltersForm.controls['intruderId']"
+                   [options]="intruders()"
+                   optionValue="id"
+                   optionLabel="name"
+                   placeholder="Выберите тип нарушителя"
+                   appendTo="body"/>
+    <p-multiSelect [formControl]="threatsFiltersForm.controls['reachabilityId']"
+                   [options]="reachabilities()"
+                   optionValue="id"
+                   optionLabel="name"
+                   placeholder="Выберите достижимость"
+                   appendTo="body"/>
+</div>

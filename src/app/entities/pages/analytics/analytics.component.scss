@@ -1,0 +1,46 @@
+:host {
+    height: 93%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+
+    .action-block {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+
+        .threats-list {
+            height: 100%;
+            width: 60%;
+            display: flex;
+            padding: 5px;
+            flex-direction: column;
+            max-height: fit-content;
+            overflow-y: hidden;
+        }
+
+        .measures-list {
+            height: 100%;
+            width: 40%;
+            display: flex;
+            padding: 5px;
+            flex-direction: column;
+            max-height: fit-content;
+            overflow-y: hidden;
+        }
+    }
+
+    .analytics-block {
+        height: 25%;
+        width: 100%;
+    }
+}
