@@ -11,16 +11,16 @@
          scrollHeight="flex"
          selectionMode="single"
          currentPageReportTemplate="Отображены записи с {first} по {last}. Всего {totalRecords}.">
-<!--    <ng-template pTemplate="caption">-->
-<!--            <span class="p-input-icon-left">-->
-<!--                <i class="pi pi-search"></i>-->
-<!--                <input pInputText-->
-<!--                       [(ngModel)]="searchValue"-->
-<!--                       (input)="threatsList.filterGlobal(searchValue, 'startsWith')"-->
-<!--                       placeholder="Введите текст"-->
-<!--                       type="text"/>-->
-<!--            </span>-->
-<!--    </ng-template>-->
+    <ng-template pTemplate="caption">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText
+                       [(ngModel)]="searchValue"
+                       (input)="threatsList.filterGlobal(searchValue, 'startsWith')"
+                       placeholder="Введите текст"
+                       type="text"/>
+            </span>
+    </ng-template>
     <ng-template pTemplate="header">
         <tr>
             <th>№</th>

@@ -1,1 +1,71 @@
-<p>threats-analytics works!</p>
+<div class="analytics-content">
+    <!-- Верхняя панель со статистикой -->
+    <div class="analytics-header">
+        <div class="header-title">
+            <i class="pi pi-chart-bar"></i>
+            <h3>Результаты анализа</h3>
+        </div>
+        <div class="header-stats">
+            <p-tag value="Всего задач: 12" severity="info"></p-tag>
+            <p-tag value="В работе: 5" severity="warning"></p-tag>
+            <p-tag value="Решено: 7" severity="success"></p-tag>
+        </div>
+        <div class="header-actions">
+            <p-button label="Экспорт отчета" icon="pi pi-download" styleClass="p-button-sm"></p-button>
+            <p-button label="Очистить" icon="pi pi-trash" styleClass="p-button-sm p-button-secondary"></p-button>
+        </div>
+    </div>
+
+    <!-- Таблица связей: Уязвимость + Мера = Задача -->
+    <p-table
+        [value]="tasks"
+        scrollable="true"
+        scrollHeight="flex"
+        [tableStyle]="{'min-width': '100%'}"
+        styleClass="p-datatable-sm"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 5%">#</th>
+                <th style="width: 25%">Уязвимость (Источник)</th>
+                <th style="width: 25%">Мера защиты</th>
+                <th style="width: 30%">Сформированная задача</th>
+                <th style="width: 15%">Статус</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-task>
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>
+                    <div class="cell-content threat-cell">
+                        <i class="pi pi-exclamation-triangle"></i>
+                        <span>{{ task.threatName }}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-content measure-cell">
+                        <i class="pi pi-shield"></i>
+                        <span>{{ task.measureName }}</span>
+                    </div>
+                </td>
+                <td>
+                    <span class="task-name">{{ task.taskName }}</span>
+                </td>
+                <td>
+                    <p-tag
+                        [value]="task.status"
+                        [severity]="getStatusSeverity(task.status)">
+                    </p-tag>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="5" class="empty-state">
+                    <i class="pi pi-inbox"></i>
+                    <p>Задачи не сформированы. Выберите уязвимости и меры в блоке выше.</p>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

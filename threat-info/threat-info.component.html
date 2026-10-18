@@ -1,8 +1,123 @@
-<div class="wrapper">
-    <div class="header">
-        Информация по угрозам
+<div class="threat-info-card" *ngIf="threat; else noSelection">
+    <!-- Заголовок карточки -->
+    <div class="card-header">
+        <div class="header-main">
+            <div class="threat-icon">
+                <i class="pi pi-shield"></i>
+            </div>
+            <div class="header-text">
+                <h2 class="threat-title">{{ threat.name }}</h2>
+                <span class="threat-id">ID: {{ threat.id }}</span>
+            </div>
+        </div>
+        <div class="header-status">
+            <p-tag
+                [value]="threat.status"
+                [severity]="getStatusSeverity(threat.status)">
+            </p-tag>
+        </div>
     </div>
-    <div class="body">
 
+    <!-- Основные характеристики (сетка) -->
+    <div class="info-grid">
+        <div class="info-item">
+            <label>Тип уязвимости</label>
+            <div class="info-value">
+                <i class="pi pi-tag"></i>
+                <span>{{ threat.type }}</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <label>Достижимость</label>
+            <div class="info-value">
+                <i class="pi pi-route"
+                   [ngClass]="{'text-success': threat.reachability === 'Достижима', 'text-danger': threat.reachability === 'Недостижима'}">
+                </i>
+                <span>{{ threat.reachability }}</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <label>Уровень риска (CVSS)</label>
+            <div class="info-value">
+                <p-progressBar
+                    [value]="threat.cvss || 75"
+                    [style]="{'height': '6px'}"
+                    styleClass="risk-bar">
+                </p-progressBar>
+                <span class="cvss-score">{{ threat.cvss || 7.5 }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Описание уязвимости -->
+    <div class="info-section">
+        <h4>Описание</h4>
+        <p class="description-text">
+            {{ threat.description || 'Детальное описание уязвимости отсутствует. Обратитесь к документации или специалисту по безопасности.' }}
+        </p>
+    </div>
+
+    <!-- Векторы атаки / Затронутые компоненты -->
+    <div class="info-section">
+        <h4>Затронутые компоненты</h4>
+        <div class="components-list">
+            <p-tag
+                *ngFor="let component of threat.components"
+                [value]="component"
+                severity="secondary"
+                styleClass="mr-1">
+            </p-tag>
+            <p-tag
+                *ngIf="!threat.components || threat.components.length === 0"
+                value="Не указано"
+                severity="secondary">
+            </p-tag>
+        </div>
+    </div>
+
+    <!-- Рекомендации -->
+    <div class="info-section recommendations">
+        <h4>
+            <i class="pi pi-lightbulb"></i>
+            Рекомендации
+        </h4>
+        <ul class="recommendations-list">
+            <li *ngFor="let rec of threat.recommendations">
+                <i class="pi pi-check"></i>
+                <span>{{ rec }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Действия -->
+    <div class="card-actions">
+        <p-button
+            label="Назначить меру"
+            icon="pi pi-plus"
+            styleClass="w-full"
+            (onClick)="onAssignMeasure()">
+        </p-button>
+        <div class="action-buttons-row">
+            <p-button
+                icon="pi pi-pencil"
+                styleClass="p-button-outlined p-button-secondary w-full">
+            </p-button>
+            <p-button
+                icon="pi pi-history"
+                styleClass="p-button-outlined p-button-secondary w-full">
+            </p-button>
+            <p-button
+                icon="pi pi-share-alt"
+                styleClass="p-button-outlined p-button-secondary w-full">
+            </p-button>
+        </div>
     </div>
 </div>
+
+<ng-template #noSelection>
+    <div class="no-selection">
+        <i class="pi pi-info-circle"></i>
+        <h3>Уязвимость не выбрана</h3>
+        <p>Выберите уязвимость из списка слева для просмотра подробной информации</p>
+    </div>
+</ng-template>
